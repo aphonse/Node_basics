@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h2>Blogs posted</h2>
+<a href="/">Create a blog</a>
+<br><br>
+
+<%
+if (data.length>0){
+    %>
+<table border="1">
+    <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Blog</th>
+        <th>Delete Blog</th>
+    </tr>
+
+    <%
+
+    for (let count = 0;count<data.length;count++){
+        %> <tr>
+        <td style="width: 30px; text-align: center"> <%= count+1%> </td>
+        <td> <%= data[count].name%> </td>
+        <td> <%= data[count].email%> </td>
+        <td> <%= data[count].blog%> </td>
+        <td style="text-align: center"><a href="/delete/<%=data[count].id%>"><button>X</button></a></td>
+    </tr>
+<%
+    }
+%>  </table>
+        <%
+}else {
+%><h4>There are no blog...</h4><%
+}
+ %>
+
+</body>
+</html>
